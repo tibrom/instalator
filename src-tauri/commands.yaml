@@ -1,0 +1,49 @@
+commands:
+  - name: scan
+    command: "sudo  wget --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/4fns85ojWD38DXn/download && sudo chmod +x rtu-eng-2.3.0-26k_Buster_buster_amd64.sh && sudo  wget -O scan.sh --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/UAJRgpvXV16cvJG/download && sudo chmod +x scan.sh && sudo ./scan.sh\n"
+    check_state:
+      - STATE_AMIROOT_
+      - STATE_DNS_
+      - STATE_REPO_
+      - STATE_DMIDECODE_
+
+    value_state:
+      - STATE_IP_
+      
+  - name: ArchivGen
+    command: "sudo  wget -O archive_gen.sh --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/2Uo4TubDiT4jBNO/download && sudo chmod +x archive_gen.sh && sudo ./archive_gen.sh\n"
+    check_state:
+      - STATE_AMIROOT_
+      - STATE_LICENSE_
+      - STATE_ARCHIVEGEN_
+    value_state:
+      - COMPANY_NAME
+  
+
+  - name: installation
+    command:  "sudo  wget -O installation.sh --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/k7oluNbSljxi8kY/download\n"
+    check_state:
+      - STATE_PACKAGE-X_OK
+      - STATE_MODULE_OK
+    value_state:
+  
+  - name: configurator
+    command:  "sudo  wget -O configurator.sh --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/k5fJga5AorzgA4T/download\n"
+    check_state:
+    value_state:
+  
+  - name: dbconfig
+    command:  "sudo  wget -O dbconfig.sh --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/G7FGgv4UxWDgtiF/download\n"
+    check_state:
+    value_state:
+
+  - name: coropace
+    command:  "sudo  wget -O coropace.sh --no-check-certificate --content-disposition https://cloud.satel.org/index.php/s/ds6XVm1dg3WLv8D/download\n"
+    check_state:
+    value_state:
+
+
+
+    
+      
+
